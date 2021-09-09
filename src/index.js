@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import GameList from './components/GameList';
+import GlobalStyle from "./styles/globalStyles"
 //redux setup
 import {Provider} from "react-redux";
 import { createStore, applyMiddleware, compose } from "redux";
@@ -18,6 +19,7 @@ ReactDOM.render(
     <Provider store={store} >
     <App />
     <GameList/>
+    <GlobalStyle/>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
