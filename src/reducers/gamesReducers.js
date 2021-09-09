@@ -8,7 +8,10 @@ const initialState={
 export const GameReducers=(state=initialState,action)=>{
     switch(action.type){
         case "FETCH_GAMES":
-            return {...state};
+            return {...state,popularGames:action.payload.popular,
+                upcomingGames:action.payload.upcoming,
+                newGames:action.payload.newgames,
+            };
         default:
             return {...state};
     }
