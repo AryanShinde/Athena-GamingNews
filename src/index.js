@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import GameList from './components/GameList';
 //redux setup
 import {Provider} from "react-redux";
 import { createStore, applyMiddleware, compose } from "redux";
@@ -17,6 +17,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store} >
     <App />
+    <GameList/>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
