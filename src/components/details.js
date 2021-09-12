@@ -23,7 +23,7 @@ const Details=()=>{
             <img src={detail.background_image} alt="" />
             <div>{detail.description}</div>
             {images.map((image)=>(
-                <img src={image.image}></img>
+                <img src={image.image} alt={image} ></img>
             ))}
             </Card>
         </Name>

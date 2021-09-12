@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import Game from "./Game";
 import styled from "styled-components";
-import { useEffect,useState } from "react";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { gamesAction } from "../actions/gamesAction";
 import Details from "./details";
@@ -23,7 +23,7 @@ const GameList=()=>{
     const searchGame=useSelector(store=>store.game.searchedGames);
     console.log(searchGame);
 
-    if(upcoming.length!=0){
+    if(upcoming.length!==0){
     return(
         <Main>
             {( searchGame.length && <>
