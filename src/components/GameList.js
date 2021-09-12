@@ -21,21 +21,21 @@ const GameList=()=>{
     const popular=useSelector(store=>store.game.popularGames);
     const newGame=useSelector(store=>store.game.newGames);
     const searchGame=useSelector(store=>store.game.searchedGames);
-    console.log(searchGame);
 
     if(upcoming.length!==0){
     return(
         <Main>
-            {( searchGame.length && <>
+            { !!searchGame.length && (
+                <div>
         <h1 style={{textAlign:"center"}}>Searched Games</h1>
          <Gamelist >
              {searchGame.map((game)=>{
                  return <Game name={game.name} id={game.id} release={game.released} image={game.background_image} key={game.id}/>
              })}
          </Gamelist>
-         </>)}
-            
-
+         </div>
+        )}
+        
         <h1 style={{textAlign:"center"}}>Upcoming Games</h1>
         <Gamelist >
             {pathId && <Details/>}
