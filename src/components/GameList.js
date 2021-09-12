@@ -5,9 +5,13 @@ import styled from "styled-components";
 import { useEffect,useState } from "react";
 import { useDispatch } from "react-redux";
 import { gamesAction } from "../actions/gamesAction";
-
+import Details from "./details";
+import { useLocation } from "react-router";
 
 const GameList=()=>{
+    const location=useLocation();
+    const pathId=location.pathname.split("/")[2];
+
 
     const dispatch=useDispatch();
     useEffect(()=>{
@@ -16,27 +20,30 @@ const GameList=()=>{
     const upcoming= useSelector(store=>store.game.upcomingGames)
     const popular=useSelector(store=>store.game.popularGames);
     const newGame=useSelector(store=>store.game.newGames);
+
     if(upcoming.length!=0){
     return(
         <Main>
+
         <h1 style={{textAlign:"center"}}>Upcoming Games</h1>
         <Gamelist >
+            {pathId && <Details/>}
             {upcoming.map((game)=>{
-                return <Game name={game.name} release={game.released} image={game.background_image} key={game.id}/>
+                return <Game name={game.name} release={game.released} image={game.background_image} id={game.id} key={game.id}/>
             })}
         </Gamelist>
 
          <h1 style={{textAlign:"center"}}>Popular Games</h1>
          <Gamelist >
              {popular.map((game)=>{
-                 return <Game name={game.name} release={game.released} image={game.background_image} key={game.id}/>
+                 return <Game name={game.name} id={game.id} release={game.released} image={game.background_image} key={game.id}/>
              })}
          </Gamelist>
 
           <h1 style={{textAlign:"center"}}>New Games</h1>
           <Gamelist >
               {newGame.map((game)=>{
-                  return <Game name={game.name} release={game.released} image={game.background_image} key={game.id}/>
+                  return <Game name={game.name} id={game.id} release={game.released} image={game.background_image} key={game.id}/>
               })}
           </Gamelist>
           </Main>

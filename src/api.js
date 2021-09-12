@@ -30,3 +30,5 @@ const upcomingYear=`${date.getFullYear()+1}-${currentMonthFun()}-${currentDayFun
 export const popular_games=`https://api.rawg.io/api/games?key=abfb9a20f685496482d59779b3c40b8f&dates=${previousYear},${currentYear}&ordering=-rating`;
 export const upcoming_games=`https://api.rawg.io/api/games?key=abfb9a20f685496482d59779b3c40b8f&dates=${currentYear},${upcomingYear}&ordering=-rating`;
 export const new_games=`https://api.rawg.io/api/games?key=abfb9a20f685496482d59779b3c40b8f&dates=${previousYear},${currentYear}&ordering=-released`;
+export const game_details=(id)=>`https://api.rawg.io/api/games/${id}?key=abfb9a20f685496482d59779b3c40b8f`;
+export const screenshots=(id)=>`https://api.rawg.io/api/games/${id}/screenshots?key=abfb9a20f685496482d59779b3c40b8f`;

@@ -1,15 +1,24 @@
 import React from "react";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { DetailsAction } from "../actions/detIailsAction";
+import { Link } from "react-router-dom";
+
+const Game=({name,image,release,id})=>{
+    const dispatch=useDispatch();
 
 
-const Game=({name,image,release})=>{
-    console.log(name.length)
+    const detailHandler=()=>{
+        dispatch(DetailsAction(id));
+    }
     return(
-        <GameDiv>
+        <Link to={`/game/${id}`}>
+        <GameDiv onClick={detailHandler}>
             <h3>{name}</h3>
             <Released>{release}</Released>
             <img src={image} alt="photu" />
         </GameDiv>
+        </Link>
     );
 }
 
