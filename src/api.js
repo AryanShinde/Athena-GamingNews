@@ -32,3 +32,4 @@ export const upcoming_games=`https://api.rawg.io/api/games?key=abfb9a20f68549648
 export const new_games=`https://api.rawg.io/api/games?key=abfb9a20f685496482d59779b3c40b8f&dates=${previousYear},${currentYear}&ordering=-released`;
 export const game_details=(id)=>`https://api.rawg.io/api/games/${id}?key=abfb9a20f685496482d59779b3c40b8f`;
 export const screenshots=(id)=>`https://api.rawg.io/api/games/${id}/screenshots?key=abfb9a20f685496482d59779b3c40b8f`;
+export const search_games=(game_name)=>`https://api.rawg.io/api/games?key=abfb9a20f685496482d59779b3c40b8f&search=${game_name}&page_size=8`;

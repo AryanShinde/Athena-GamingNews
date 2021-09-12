@@ -12,6 +12,10 @@ export const GameReducers=(state=initialState,action)=>{
                 upcomingGames:action.payload.upcoming,
                 newGames:action.payload.newgames,
             };
+        case "FETCH_SEARCHED":
+            return {
+                ...state,searchedGames:action.payload.search,
+            }
         default:
             return {...state};
     }

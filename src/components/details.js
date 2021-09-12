@@ -1,17 +1,23 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
+import {useHistory} from "react-router-dom";
 
 
 const Details=()=>{
     const detail=useSelector(store=>store.detail.details);
     const images=useSelector(store=>store.detail.screen);
     const isloading=useSelector(store=>store.detail.isloading);
-
+    const history=useHistory();
+    const backEventHandler=(e)=>{
+        if(e.target.classList.contains("background-detail")){
+            history.push("/");
+        }
+    }
 
     return (
         <>
-        { !isloading && (<Name>
+        { !isloading && (<Name onClick={backEventHandler} className="background-detail" >
             <Card>
             {detail.name}
             <img src={detail.background_image} alt="" />
@@ -29,7 +35,6 @@ const Details=()=>{
 
 const Name=styled.div`
     background-color: rgba(0,0,0,0.5);
-    pointer-events: none;
     padding:4rem;
     width:100%;
     height: 100%;
@@ -41,7 +46,7 @@ const Name=styled.div`
     img{
         padding: 0.4rem;
         width:40rem;
-    }
+    } 
 `
 const Card=styled.div`
     min-height: 200vh;
@@ -59,6 +64,15 @@ const Card=styled.div`
     pointer-events: all;
     padding: 2rem;
     padding-bottom: 10rem;
+    @media (max-width:786px){
+        padding: 2rem;
+        left:10%;
+        min-height: 20vh;
+        width:40%;
+        img{
+            width:10rem;
+        }
+    }
 `
 
 export default Details;

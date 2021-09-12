@@ -24,9 +24,10 @@ const Game=({name,image,release,id})=>{
 
 const GameDiv=styled.div`
     cursor:pointer;
+    border-radius:0.4rem;
     box-sizing: border-box;
     margin: 2rem;
-    box-shadow: 0px 0px 15px #a09cc8;
+    box-shadow: 0px 0px 12px #8881d1;
     width:20rem;
     max-width:20rem;
     padding: 0.4rem 0rem 0rem 0rem;

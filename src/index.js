@@ -4,6 +4,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import GameList from './components/GameList';
 import GlobalStyle from "./styles/globalStyles"
+import Nav from './components/nav';
 //redux setup
 import {Provider} from "react-redux";
 import { createStore, applyMiddleware, compose } from "redux";
@@ -20,6 +21,7 @@ ReactDOM.render(
     <Provider store={store} >
     <BrowserRouter>
     <App />
+    <Nav/>
 
     <Route path={["/game/:id","/"]}>
     <GameList/>
